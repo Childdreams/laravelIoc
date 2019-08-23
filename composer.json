@@ -1,0 +1,21 @@
+{
+    "name": "baofeng/demo",
+    "description": "This is a test.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "bf",
+            "email": "243790881@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/" ,
+            "baofeng\\Demo\\" : "vendor/baofeng/Demo/src"
+        }
+    }
+}

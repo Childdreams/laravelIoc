@@ -1,0 +1,27 @@
+{
+    "name": "baofeng/demo",
+    "description": "This is test demo",
+    "authors": [
+        {
+            "name": "bf",
+            "email": "243790881@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Demo\\" : "src/"
+        },
+        "autoload-dev": {
+            "psr-4": {
+                "Demo\\Tests\\": "tests/"
+            }
+        }
+    },
+    "repositories": {
+        "baofeng": {
+            "type": "path",
+            "url": "E:/wamp64/www/demo/vendor/baofeng/Demo"
+        }
+    }
+}
