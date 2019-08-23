@@ -3,9 +3,24 @@
 //加载 配置文件
 $ServiceProvide = include_once __DIR__."/../config/app.php";
 
+
+
 $app = \baofeng\Demo\Containers\container::getObj();
 
+//将依赖注册到容器
+//将服务提供者注册
+array_walk($ServiceProvide["providers"] , function ($provider) use ($app){
+    (new $provider($app))->reister();
+});
+
+array_walk($ServiceProvide["aliases"]  , function ($index , $alias){
+    class_alias( $index , $alias);
+});
+
+$route = "App\\Controllers\\UserController@get";
+$app->SetRouter($route);
 $app->make(\baofeng\Demo\Kernels\kernel::class);
+
 /*
  | ----------------------------------------------------------
  |  优化部分
@@ -16,22 +31,9 @@ $app->make(\baofeng\Demo\Kernels\kernel::class);
  |
  */
 
-//将依赖注册到容器
-$app->register([
-    \baofeng\Demo\Https\RequestInterface::class => \baofeng\Demo\Https\RequestInterface::class
-]);
-$app->register([
-    \baofeng\Demo\Https\SendSmsInterface::class => \baofeng\Demo\Https\SendSmsService::class
-]);
 
 
-array_walk($ServiceProvide["providers"] , function ($provider) use ($app){
-    (new $provider($app))->reister();
-});
 
-array_walk($ServiceProvide["aliases"]  , function ($index , $alias){
-    class_alias( $index , $alias);
-});
 
 //\baofeng\Demo\Tests\Ts::get();
 //Ts::get();

@@ -14,7 +14,8 @@ return [
     |
     */
     'providers' => [
-        \App\Providers\TestServiceProvider::class
+        \App\Providers\TestServiceProvider::class ,
+        \App\Providers\AppServiceProvider::class
     ],
 
     /*

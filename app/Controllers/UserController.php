@@ -4,12 +4,15 @@
 namespace App\Controllers;
 
 use baofeng\Demo\Facaders\Facader;
+use baofeng\Demo\Https\RequestInterface;
+use baofeng\Demo\Https\SendSmsInterface;
+use baofeng\Demo\Https\SendSmsService;
 
 class UserController
 {
-    public function test()
+    public function get(RequestInterface $request , SendSmsInterface $sendSms)
     {
-        Facader::demo();
+        var_dump(10000);
     }
 }
 

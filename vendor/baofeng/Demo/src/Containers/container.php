@@ -10,6 +10,8 @@ class container
 
     public $register = [];
 
+    public $route ;
+
     protected static $obj ;
 
     public function singleton($abstract , callable $concrete = null){
@@ -47,6 +49,12 @@ class container
 
     public function make($abstract)
     {
-        new $abstract();
+        $routers = explode("@",$this->route);
+        new $abstract(...$routers);
+    }
+
+    public function setRouter($name)
+    {
+        $this->route = $name;
     }
 }
