@@ -11,8 +11,8 @@ abstract class Facader
     protected static $app ;
 
     public static function demo(){
-        var_dump(1 . "Facader Demo!!!");
-    }
+    var_dump(1 . "Facader Demo!!!");
+}
 
 
     public static function getfactory(){

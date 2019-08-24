@@ -10,6 +10,6 @@ class Ts extends Facader
 {
     public static function getFacadeAccessor()
     {
-        return "test";
+        return "test"; //容器里面register 的key
     }
 }

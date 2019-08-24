@@ -8,6 +8,12 @@ class container
 {
     public $app ;
 
+//    public $app = [
+//  "test" => function(){
+//    return  new test()
+//      }
+//];
+
     public $register = [];
 
     public $route ;
@@ -39,6 +45,7 @@ class container
     }
     //
     public function register(array $bind){
+//        is_object($concrete) == new \ReflectionClass($concrete)
         foreach($bind as $concrete){
             if(!( new \ReflectionClass($concrete))){
                 throw new \Exception("注入存在错误 ".$concrete,200);

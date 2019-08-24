@@ -4,14 +4,14 @@
 namespace baofeng\Demo\Tests;
 
 
-class Test implements TDInterface
+class Demo implements TDInterface
 {
     public function __construct()
     {
-        var_dump("This is Test");
+        var_dump("This is Demo!!!");
     }
 
     public function get(){
-        var_dump("Test Vendor!!!");
+        var_dump("Test Vendor!!!  Demo");
     }
 }

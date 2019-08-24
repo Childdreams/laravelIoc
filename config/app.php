@@ -29,3 +29,4 @@ return [
         "ts" => \baofeng\Demo\Tests\Ts::class
     ]
 ];
+//\ts::test() ; == \baofeng\Demo\Tests\Ts::est

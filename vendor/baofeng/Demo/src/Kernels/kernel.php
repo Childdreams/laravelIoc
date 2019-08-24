@@ -47,7 +47,9 @@ class kernel
                 throw new \Exception("bug");
             }
         }
-        (new $classes())->{$name}(...$inject);
+        call_user_func_array([$classes , $name] , $inject);
+        // 上下意思一致
+//        (new $classes())->{$name}(...$inject);
     }
 
 
