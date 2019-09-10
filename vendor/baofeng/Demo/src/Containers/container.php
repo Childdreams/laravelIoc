@@ -4,6 +4,9 @@
 namespace baofeng\Demo\Containers;
 
 
+use baofeng\Demo\Route\Route;
+use mysql_xdevapi\Exception;
+
 class container
 {
     public $app ;
@@ -17,6 +20,8 @@ class container
     public $register = [];
 
     public $route ;
+
+    private $method;
 
     protected static $obj ;
 
@@ -56,12 +61,28 @@ class container
 
     public function make($abstract)
     {
+        $this->getRoute();
         $routers = explode("@",$this->route);
-        new $abstract(...$routers);
+        try{
+            new $abstract(...$routers);
+        }catch (\Exception $e){
+            throw new \ErrorException($e->getMessage());
+        }
+    }
+
+    private function getRoute(){
+        $Root = $_SERVER["PHP_SELF"];
+        $match = str_replace("/index.php"  ,"" ,$Root );
+        $this->route = str_replace($match, "" , $_SERVER['REQUEST_URI']);
+        preg_match("/\S*?(?=\?\S+)/" , $this->route , $this->route);
+        $this->method = $_SERVER["REQUEST_METHOD"];
+        $funcName = "get".$this->method;
+        $this->route = Route::$funcName($this->route[0]);
     }
 
     public function setRouter($name)
     {
+
         $this->route = $name;
     }
 }

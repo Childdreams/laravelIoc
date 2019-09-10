@@ -18,5 +18,10 @@ abstract class ServiceProvider
 
     }
 
+    public function boot()
+    {
+
+    }
+
 
 }

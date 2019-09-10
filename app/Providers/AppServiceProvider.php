@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register(
             [
                 \baofeng\Demo\Https\RequestInterface::class => \baofeng\Demo\Https\Request::class ,
-                \baofeng\Demo\Https\SendSmsInterface::class => \baofeng\Demo\Https\SendSmsService::class
+                \baofeng\Demo\Https\SendSmsInterface::class => \baofeng\Demo\Https\SendSmsService::class,
             ]
         );
     }

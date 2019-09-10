@@ -8,10 +8,10 @@ class Test implements TDInterface
 {
     public function __construct()
     {
-        var_dump("This is Test");
+        dump("This is Test");
     }
 
     public function get(){
-        var_dump("Test Vendor!!!");
+        dump("Test Vendor!!!");
     }
 }
