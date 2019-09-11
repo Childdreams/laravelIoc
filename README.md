@@ -46,17 +46,17 @@
     ```
     至于怎么注册到容器 laravel 的写法是 服务提供者。 将服务提供者注册到 
     
-    见```/config/app.php```
+    见[bootstrap/app.php](\config\app.php)
     
-    将服务提供者携带的 服务注册到 容器中 ```bootstrap/app.php``` line 23 
+    将服务提供者携带的 服务注册到 容器中 [bootstrap/app.php](\config\app.php) line 23 
     
-    ``` baofeng\Demo\Kernel\Kernel@reisterServiceProvider ``` 
+    [baofeng\Demo\Kernel\Kernel@reisterServiceProvider](vendor\baofeng\Demo\src\Kernels\kernel.php)
     
 ## 门面模式
 
  门面模式的核心内容 依旧是将门面模式的注入到容器之中 。在正常的 门面模式直接返回注入时候的key ， 通过 __callstatic  去容器中查询 
  
- ```baofeng\Demo\Facaders\Facader```
+ [baofeng\Demo\Facaders\Facader](\vendor\baofeng\Demo\src\Facaders\Facader.php)
     
 ## 迭代器 IteratorAggregate
 
@@ -64,6 +64,6 @@ laravel 中 db 等 对象进行foreach 循环时候 ，循环出来的只是它�
 
 ```baofeng\Demo\Https\Request```
 
-[baofeng\Demo\Iterators\MyIterator](vendor\baofeng\Demo\src\Iterators\MyIterator.php)
+[baofeng\Demo\Iterators\MyIterator](vendor/baofeng/Demo/src/Iterators/MyIterator.php)
 
-详细的注释在 ```baofeng\Demo\Iterators\MyIterator``` 中
+详细的注释在 [baofeng\Demo\Iterators\MyIterator](\vendor\baofeng\Demo\src\Iterators\MyIterator.php) 中
