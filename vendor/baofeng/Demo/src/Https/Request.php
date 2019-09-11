@@ -32,4 +32,9 @@ class Request implements RequestInterface , \IteratorAggregate
     {
         return new MyIterator($this->argv);
     }
+
+    public function is_Method($method)
+    {
+        return strtoupper($_SERVER["REQUEST_METHOD"]) === $method;
+    }
 }

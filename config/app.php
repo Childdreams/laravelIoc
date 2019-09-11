@@ -26,7 +26,8 @@ return [
     |
     */
     'aliases' => [
-        "ts" => \baofeng\Demo\Tests\Ts::class
+        "ts" => \baofeng\Demo\Tests\Ts::class ,
+        "Route" => \baofeng\Demo\Route\Route::class
     ]
 ];
 //\ts::test() ; == \baofeng\Demo\Tests\Ts::est

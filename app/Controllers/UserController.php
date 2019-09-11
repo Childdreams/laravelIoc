@@ -22,6 +22,7 @@ class UserController
         foreach ($request as $index => $item) {
             dump("key : " . $index ." value :". $item);
         }
+        dd(1);
     }
 }
 
