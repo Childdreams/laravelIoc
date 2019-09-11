@@ -3,14 +3,12 @@
 
 namespace App\Controllers;
 
-use baofeng\Demo\Facaders\Facader;
-use baofeng\Demo\Https\Request;
+use baofeng\Demo\Controller\Controller;
 use baofeng\Demo\Https\RequestInterface;
 use baofeng\Demo\Https\SendSmsInterface;
-use baofeng\Demo\Https\SendSmsService;
 use baofeng\Demo\Tests\Ts;
 
-class UserController
+class UserController extends Controller
 {
     public function get(RequestInterface $request , SendSmsInterface $sendSms)
     {
@@ -22,7 +20,7 @@ class UserController
         foreach ($request as $index => $item) {
             dump("key : " . $index ." value :". $item);
         }
-        dd(1);
+        dd("this is usercontroller index ");
     }
 }
 

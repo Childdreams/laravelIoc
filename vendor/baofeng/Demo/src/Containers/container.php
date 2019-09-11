@@ -23,6 +23,10 @@ class container
 
     private $method;
 
+    private $routeName;
+
+    private $funcName;
+
     protected static $obj;
 
     public function singleton($abstract, callable $concrete = null)
@@ -67,30 +71,36 @@ class container
     public function make($abstract)
     {
         $this->getRoute();
-        $routers = explode("@", $this->route);
+
         try {
-            new $abstract(...$routers);
+            $kernel = new $abstract();
+            $funcName = $this->funcName;
+            $this->route = Route::$funcName($this->route);
+            $routers = explode("@", $this->route);
+            $kernel->GetReflectionClass(...$routers);
         } catch (\Exception $e) {
             throw new \ErrorException($e->getMessage());
         }
+
     }
 
     private function getRoute()
     {
+
         $Root = $_SERVER["PHP_SELF"];
         $match = str_replace("/index.php", "", $Root);
         $this->route = str_replace($match, "", $_SERVER['REQUEST_URI']);
         preg_match("/\S*?(?=\?\S+)/", $this->route, $routeName);
         $routeName = $routeName ?: $this->route;
         $this->method = $_SERVER["REQUEST_METHOD"];
-        $funcName = "get" . $this->method;
-        $routeName = $routeName ?: '/';
-        $this->route = Route::$funcName($this->route);
+        $this->funcName = "get" . $this->method;
+        $this->routeName = $routeName ?: '/';
+
     }
 
-    public function setRouter($name)
+    public function setRouter()
     {
 
-        $this->route = $name;
+//        require_once  "/route/web.php";
     }
 }

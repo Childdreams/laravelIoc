@@ -15,7 +15,9 @@ return [
     */
     'providers' => [
         \App\Providers\TestServiceProvider::class ,
-        \App\Providers\AppServiceProvider::class
+        \App\Providers\AppServiceProvider::class,
+        \App\Providers\RouteServiceProvider::class
+
     ],
 
     /*

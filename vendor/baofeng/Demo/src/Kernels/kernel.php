@@ -5,6 +5,7 @@ namespace baofeng\Demo\Kernels;
 
 
 use baofeng\Demo\Containers\container;
+use baofeng\Demo\Route\Route;
 
 class kernel
 {
@@ -19,20 +20,22 @@ class kernel
      * @param $function
      * @throws \Exception
      */
-    public function __construct($controller, $function)
+    public function __construct()
     {
         $this->app = container::getObj();
 
         $this->init();
 
+//        $this->GetReflectionClass($controller, $function);
+
         $this->reisterServiceProvider();
 
-        $this->GetReflectionClass($controller, $function);
+
 
     }
 
 
-    private function GetReflectionClass($controller, $function)
+    public function GetReflectionClass($controller, $function)
     {
         $ref = (new \ReflectionClass($controller));
         // 获取 控制器的 方法 里面的参数
@@ -64,6 +67,7 @@ class kernel
         $app = $this->app;
         array_walk($this->config["app"]["providers"], function ($k, $provider) use ($app) {
             (new $k($app))->reister();
+            (new $k($app))->boot();
         });
         $this->registerAlias();
     }
