@@ -32,4 +32,3 @@ return [
         "Route" => \baofeng\Demo\Route\Route::class
     ]
 ];
-//\ts::test() ; == \baofeng\Demo\Tests\Ts::est

@@ -11,8 +11,6 @@ class Request implements RequestInterface , \IteratorAggregate
 {
     private $argv ;
 
-    private $ttt = [1,2,3,4,5,6];
-
     public function __construct()
     {
         $this->argv = $_REQUEST;

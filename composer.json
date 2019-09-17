@@ -1,5 +1,5 @@
 {
-    "name": "baofeng/demo",
+    "name": "baofeng/laravelIoc",
     "description": "This is a test.",
     "type": "library",
     "license": "MIT",
@@ -11,7 +11,8 @@
     ],
     "require": {
         "php": ">=7.1.0",
-        "symfony/var-dumper": "^4.3"
+        "symfony/var-dumper": "^4.3",
+        "nmred/kafka-php": "v0.2.0.8"
     },
     "autoload": {
         "psr-4": {
