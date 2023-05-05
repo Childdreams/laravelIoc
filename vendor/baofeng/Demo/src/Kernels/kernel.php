@@ -31,7 +31,6 @@ class kernel
         $this->reisterServiceProvider();
 
 
-
     }
 
 
@@ -84,19 +83,23 @@ class kernel
         $this->getFile("config");
     }
 
-    public function getFile($dir = ""){
+    /*
+     * 将config 下所有的配置加载进来
+     * */
+    public function getFile($dir = "")
+    {
         $file = scandir($dir);
-        foreach ($file as $f){
-            if ($f == "." || $f == ".."){
+        foreach ($file as $f) {
+            if ($f == "." || $f == "..") {
                 continue;
             }
-            if (is_dir($f)){
-                $this->getFile($dir.'/'.$f);
-            }else{
-                $dirs = str_replace("/" ,"." , $dir."/".$f);
-                $dirs = str_replace(".php" ,"" , $dirs);
-                $dirs = str_replace("config." ,"" , $dirs);
-                $this->config[$dirs] = require_once $dir.'/'.$f;
+            if (is_dir($f)) {
+                $this->getFile($dir . '/' . $f);
+            } else {
+                $dirs = str_replace("/", ".", $dir . "/" . $f);
+                $dirs = str_replace(".php", "", $dirs);
+                $dirs = str_replace("config.", "", $dirs);
+                $this->config[$dirs] = require_once $dir . '/' . $f;
             }
 
         }
